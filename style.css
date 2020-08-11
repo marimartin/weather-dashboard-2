@@ -15,7 +15,7 @@
 #sidebar {
     background-color: whitesmoke;
     padding-bottom: 10px;
-    height: 525px;
+    height: 550px;
 }
 
 .city-btn {
@@ -25,7 +25,7 @@
 
 /* Weather Details */
 #weather-details {
-    height: 255px;
+    height: 275px;
     padding-left: 20px;
     border-style: solid;
     border-color: whitesmoke;
@@ -36,7 +36,7 @@
 
 /* Five Day */
 #five-day {
-    margin-top: 10px;
+    margin-top: 5px;
     height: 250px;
     padding-left: 20px;
     text-align: center;
@@ -53,3 +53,15 @@
     text-align: center;
 }
 
+/* Color indicators for UVI */
+.low {
+    background-color: green;
+}
+
+.severe {
+    background-color: yellow;
+}
+
+.severe {
+    background-color: red;
+}

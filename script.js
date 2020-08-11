@@ -4,8 +4,8 @@ var APIKey = "166a433c57516f51dfab1f7edaed8413";
 $("#five-day").hide();
 
 // When page reloads
-function fiveDay(inputCity) {
-    var inputCity = localStorage.getItem(lastCity);
+function loadPage() {
+    var inputCity = localStorage.getItem("Last City");
 
     // Run searchWeather
     searchWeather(inputCity);
@@ -13,6 +13,8 @@ function fiveDay(inputCity) {
     // Run fiveDay
     fiveDay(inputCity);
 }
+
+loadPage()
 
 // Search and display weather details
 function searchWeather(inputCity) {
@@ -27,14 +29,38 @@ function searchWeather(inputCity) {
         var iconCode = response.weather[0].icon;
         var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
 
-        console.log(response);
+        // capturing lat and lon
+        var lat = response.coord.lat;
+        var lon = response.coord.lon;
+        var uvQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon +
+            "&exclude=minutelyt,hourly&appid=" + APIKey;
+
+        $.ajax({
+            url: uvQueryURL,
+            method: "GET"
+        })
+            .then(function (nextResponse) {
+                // adding UV index to HTML
+                var $uvIndex = ("UV Index: " + nextResponse.current.uvi);
+                $(".UVindex").text($uvIndex);
+
+                if ($uvIndex < 3)
+                    $(".UVindex").addClass("low");
+                if ($uvIndex >= 3)
+                    $(".UVindex").addClass("moderate");
+                if ($uvIndex >= 8)
+                    $(".UVindex").addClass("severe");
+            });
 
         // Add content to HTML
         $(".city").html("<h1>" + response.name + " Weather Details</h1>");
         $(".date").text(moment.unix(response.dt).format("L"));
         $(".weather-icon").attr("src", iconURL);
         $(".humidity").text("Humidity: " + response.main.humidity + "%");
-        $(".wind").text("Wind Speed: " + response.wind.speed);
+
+        var windMPH = (response.wind.speed * 2.2369362921);
+
+        $(".wind").text("Wind Speed: " + windMPH.toFixed(2) + " MPH");
 
         // Convert temp to F
         var tempF = (response.main.temp - 273.15) * 1.80 + 32;
@@ -42,10 +68,10 @@ function searchWeather(inputCity) {
         // Add temp to HTML
         $(".tempF").text("Temperature: " + tempF.toFixed(2) + "°F");
 
+        // Saves city name to local storage
         var lastCity = "Last City";
         localStorage.clear();
         localStorage.setItem(lastCity, inputCity);
-        console.log(localStorage)
     });
 }
 
@@ -60,8 +86,6 @@ function fiveDay(inputCity) {
         url: fivedayqueryURL,
         method: "GET"
     }).then(function (response) {
-        console.log(fivedayqueryURL);
-
         var fiveDayBlocks = $(".five-day-block").empty();
 
         response.list.map(function (listItem, index) {
@@ -86,7 +110,8 @@ function fiveDay(inputCity) {
 // Event handler for user clicking the search button
 $("#submit-city").on("click", function (event) {
     event.preventDefault();
-    // Storing the city name
+
+    // Capturing the city name
     var inputCity = $("#city-input").val().trim();
 
     var cityButton = $("<button>");
@@ -100,6 +125,8 @@ $("#submit-city").on("click", function (event) {
 
     // Run fiveDay
     fiveDay(inputCity);
+
+    $("#city-input").empty();
 });
 
 // Generating buttons on click
