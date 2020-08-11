@@ -93,7 +93,7 @@ function fiveDay(inputCity) {
             var $fiveDayDate = $("<p>").text(moment.unix(listItem.dt).format("L"));
 
             var fiveDayIconCode = listItem.weather[0].icon;
-            var fiveDayIconURL = "http://openweathermap.org/img/wn/" + fiveDayIconCode + "@2x.png";
+            var fiveDayIconURL = "https://openweathermap.org/img/wn/" + fiveDayIconCode + "@2x.png";
             var $fiveDayIcon = $("<img>").attr("src", fiveDayIconURL);
 
             var fiveDayTempF = (listItem.temp.max - 273.15) * 1.80 + 32;
