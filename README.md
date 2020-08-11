@@ -5,4 +5,4 @@ This application allows the user to search for the weather outlook of any city. 
 Published Site:
 https://marimartin.github.io/weather-dashboard-2/
 
-<img src="/screenshots/screenshot" height="500">
+<img src="/screenshots/screenshot.png" height="500">
