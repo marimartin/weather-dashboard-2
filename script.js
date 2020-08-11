@@ -27,7 +27,7 @@ function searchWeather(inputCity) {
         method: "GET"
     }).then(function (response) {
         var iconCode = response.weather[0].icon;
-        var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+        var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
 
         // capturing lat and lon
         var lat = response.coord.lat;
