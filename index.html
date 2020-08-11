@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootsrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Weather Dashboard</h1>
+        </div>
+        <!-- Sidebar containing search box and rendered buttons -->
+        <div id="sidebar" class="col-lg-3">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <form id="artist-form">
+
+                        <!-- Label for Text Box -->
+                        <label for="artist-input">Search for a City:</label>
+
+                        <!-- Text Input Box -->
+                        <input type="text" id="city-input"><br>
+
+                        <!-- Submit Button -->
+                        <input id="submit-city" type="submit" value="Search">
+                    </form>
+                </div>
+                <!-- Buttons go here -->
+                <div id="buttons-div"></div>
+            </div>
+        </div>
+        <!-- Displays weather details -->
+        <div id="display" class="col-lg-9">
+            <div id="weather-details" class="row">
+                <div class="city"></div>
+                <div class="date"></div>
+                <img class="weather-icon"></img>
+                <div class="tempF"></div>
+                <div class="humidity"></div>
+                <div class="wind"></div>
+                <div class="UVindex"></div>
+            </div>
+            <!-- Displays five day forecast -->
+            <div id="five-day" class="row">
+                <h2>Five Day Forecast:</h2>
+                <div class="five-day-block"></div>
+                <div class="five-day-block"></div>
+                <div class="five-day-block"></div>
+                <div class="five-day-block"></div>
+                <div class="five-day-block"></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <!-- Javascript -->
+    <script src=script.js></script>
+
+</body>
+
+
+</html>

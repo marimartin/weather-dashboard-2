@@ -1,0 +1,55 @@
+/* Header */
+.page-header {
+    background-color:  rgb(26, 75, 148);
+    padding-top: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+/* Search */
+#artist-form {
+    padding-top: 10px;
+}
+
+#sidebar {
+    background-color: whitesmoke;
+    padding-bottom: 10px;
+    height: 525px;
+}
+
+.city-btn {
+    display: block;
+    margin-top: 5px;
+}
+
+/* Weather Details */
+#weather-details {
+    height: 255px;
+    padding-left: 20px;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-radius: 5px;
+    border-width: 2px;
+    text-align: center;
+}
+
+/* Five Day */
+#five-day {
+    margin-top: 10px;
+    height: 250px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.five-day-block {
+    background-color: rgb(37, 119, 241);
+    height: 200px;
+    width: 150px;
+    float: left;
+    margin-left: 10px;
+    padding-top: 5px;
+    color: white;
+    text-align: center;
+}
+
